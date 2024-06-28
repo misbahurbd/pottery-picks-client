@@ -23,8 +23,8 @@ const UserBox = () => {
               src={user?.photoURL}
               className="size-8 rounded-full object-cover flex"
             />
-            <ul className="absolute z-[100] transition opacity-0 invisible translate-y-3 w-60 right-0 top-full bg-background/30 backdrop-blur-sm rounded-md border-border border group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible flex flex-col">
-              <li className="px-3 py-2 flex items-center gap-4">
+            <ul className="absolute z-[100] transition opacity-0 invisible translate-y-3 w-60 right-0 top-full bg-secondary/60 backdrop-blur-sm rounded-md border-border border group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible flex flex-col">
+              <li className="px-3 py-3 flex items-center gap-4">
                 <img
                   src={user?.photoURL}
                   alt=""
@@ -33,31 +33,33 @@ const UserBox = () => {
                 <h2>{user?.displayName}</h2>
               </li>
               <span className="w-full border-b border-border" />
-              <li>
-                <Link
-                  to="/profile"
-                  className="flex items-center transition gap-3 px-4 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <HiOutlineUser />
-                  <span>Profile</span>
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/settings"
-                  className="flex items-center transition gap-3 px-4 py-2 text-muted-foreground hover:text-foreground"
-                >
-                  <HiOutlineCog6Tooth />
-                  <span>Settings</span>
-                </Link>
-              </li>
+              <div className="flex flex-col gap-3 px-4 py-3">
+                <li>
+                  <Link
+                    to="/profile"
+                    className="flex items-center transition gap-3 text-muted-foreground hover:text-foreground"
+                  >
+                    <HiOutlineUser />
+                    <span>Profile</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/settings"
+                    className="flex items-center transition gap-3 text-muted-foreground hover:text-foreground"
+                  >
+                    <HiOutlineCog6Tooth />
+                    <span>Settings</span>
+                  </Link>
+                </li>
+              </div>
               <span className="w-full border-b border-border" />
-              <li>
+              <li className="px-4 py-3">
                 <div
                   to="/settings"
                   type="button"
                   onClick={logout}
-                  className="flex items-center transition gap-3 px-4 py-2 text-muted-foreground hover:text-foreground"
+                  className="flex items-center transition gap-3 text-muted-foreground hover:text-foreground"
                 >
                   <HiOutlineArrowLeftEndOnRectangle />
                   <span>Logout</span>

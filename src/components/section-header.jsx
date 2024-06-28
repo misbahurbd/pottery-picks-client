@@ -4,7 +4,7 @@ const SectionHeader = ({ title, subtitle }) => {
   return (
     <div className="w-full max-w-[640px] text-center mx-auto py-8">
       <h3 className="font-bold text-2xl text-foreground">{title}</h3>
-      <p className="text-sm text-muted-foreground">{subtitle}</p>
+      {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
     </div>
   )
 }

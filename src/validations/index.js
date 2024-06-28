@@ -42,10 +42,5 @@ export const addCraftFormSchema = z.object({
   rating: z.string().min(1, "Rating is required"),
   customization: z.enum(["yes", "no"]),
   processing_time: z.string().min(1, "Processing time is required"),
-  stockStatus: z.enum(["In stock", "Out of stock", "Made to order"]),
-  user_name: z.string().min(1, "User name is required"),
-  user_email: z
-    .string()
-    .min(1, "User email is required")
-    .email("Invalid email address"),
+  stock_status: z.enum(["In stock", "Out of stock", "Made to order"]),
 })

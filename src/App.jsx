@@ -11,6 +11,11 @@ import Login from "./pages/login"
 import { Toaster } from "sonner"
 import PrivateLayout from "./layouts/private-layout"
 import AddCraft from "./pages/add-craft"
+import MyCraft from "./pages/my-craft"
+import "react-tooltip/dist/react-tooltip.css"
+import OurCrafts from "./pages/our-crafts"
+import EditCraft from "./pages/edit-craft"
+import Craft from "./pages/craft"
 
 const App = () => {
   const routes = createBrowserRouter([
@@ -38,11 +43,33 @@ const App = () => {
               path: "/add-craft",
               element: <AddCraft />,
             },
+            {
+              path: "/my-craft",
+              element: <MyCraft />,
+            },
           ],
         },
         {
           index: true,
           element: <Home />,
+        },
+
+        {
+          path: "crafts",
+          children: [
+            {
+              index: true,
+              element: <OurCrafts />,
+            },
+            {
+              path: ":id",
+              element: <Craft />,
+            },
+            {
+              path: "edit/:id",
+              element: <EditCraft />,
+            },
+          ],
         },
       ],
     },

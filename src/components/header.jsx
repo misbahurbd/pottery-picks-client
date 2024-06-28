@@ -12,8 +12,8 @@ const Header = () => {
       path: "/",
     },
     {
-      label: "All Art and craft Items",
-      path: "/all-art-and-craft-items",
+      label: "Our Art & Craft",
+      path: "/crafts",
     },
     {
       label: "Add Craft Item",
@@ -21,7 +21,7 @@ const Header = () => {
     },
     {
       label: "My Art & Craft List",
-      path: "/my-crafts",
+      path: "/my-craft",
     },
   ]
 

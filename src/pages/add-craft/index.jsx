@@ -12,10 +12,14 @@ import {
   itemRating,
   itemStock,
 } from "../../constant"
+import { toast } from "sonner"
+import { useNavigate } from "react-router-dom"
+import SectionHeader from "../../components/section-header"
 
 const AddCraft = () => {
   const { user, loading } = useContext(AuthContext)
   const [isLoading, setIsLoading] = useState(false)
+  const navigate = useNavigate()
 
   const form = useForm({
     resolver: zodResolver(addCraftFormSchema),
@@ -29,17 +33,45 @@ const AddCraft = () => {
       customization: "",
       processing_time: "",
       stockStatus: "",
-      user_name: user?.displayName || "",
-      user_email: user?.email || "",
     },
   })
+
+  const onSubmit = async values => {
+    setIsLoading(true)
+    const toastId = toast.loading("Creating new craft...")
+    try {
+      const res = await fetch("http://localhost:4000/craft", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          ...values,
+          user_name: user?.displayName,
+          user_email: user?.email,
+        }),
+      })
+      if (res.ok) {
+        navigate("/my-craft")
+        toast.success("Craft created successfully!", { id: toastId })
+      }
+    } catch (error) {
+      toast.error("Unable to create craft", { id: toastId })
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   if (loading) return <Loading />
 
   return (
-    <div className="px-4 flex-1 flex items-center justify-center">
+    <div className="px-4 flex-1 flex flex-col items-center justify-center">
+      <SectionHeader title="Add Craft Item" />
       <div className="w-full max-w-[600px]">
-        <form className="flex flex-col gap-3 p-8 rounded-md bg-secondary">
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="flex flex-col gap-3 p-8 rounded-md bg-secondary"
+        >
           <FormInput
             form={form}
             name="image"
@@ -61,24 +93,15 @@ const AddCraft = () => {
             placeholder="Short description"
             disabled={isLoading}
           />
-          <div className="flex gap-4">
-            <FormInput
-              form={form}
-              name="price"
-              label="Price"
-              placeholder="Price"
-              className="w-1/2"
-              disabled={isLoading}
-            />
-            <FormInput
-              form={form}
-              name="rating"
-              label="Rating"
-              placeholder="Rating"
-              className="w-1/2"
-              disabled={isLoading}
-            />
-          </div>
+
+          <FormInput
+            form={form}
+            name="price"
+            label="Price"
+            placeholder="Price"
+            disabled={isLoading}
+          />
+
           <div className="flex gap-4">
             <FormSelect
               form={form}
@@ -95,8 +118,8 @@ const AddCraft = () => {
             <FormSelect
               form={form}
               name="subcategory_name"
-              label="Subcategory Name"
-              placeholder="Subcategory name"
+              label="Subcategory"
+              placeholder="Subcategory"
               data={itemCategories}
               className="w-1/2"
               disabled={isLoading}
