@@ -3,8 +3,8 @@ import { AuthContext } from "../providers/auth-provider"
 import { Link } from "react-router-dom"
 import {
   HiOutlineArrowLeftEndOnRectangle,
-  HiOutlineCog6Tooth,
-  HiOutlineUser,
+  // HiOutlineCog6Tooth,
+  // HiOutlineUser,
 } from "react-icons/hi2"
 
 const UserBox = () => {
@@ -32,7 +32,7 @@ const UserBox = () => {
                 />
                 <h2>{user?.displayName}</h2>
               </li>
-              <span className="w-full border-b border-border" />
+              {/* <span className="w-full border-b border-border" />
               <div className="flex flex-col gap-3 px-4 py-3">
                 <li>
                   <Link
@@ -53,7 +53,7 @@ const UserBox = () => {
                   </Link>
                 </li>
               </div>
-              <span className="w-full border-b border-border" />
+              <span className="w-full border-b border-border" /> */}
               <li className="px-4 py-3">
                 <div
                   to="/settings"
