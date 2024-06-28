@@ -13,7 +13,7 @@ const AuthLayout = () => {
   if (!loading && user) return <Navigate to={"/"} />
 
   return (
-    <div className="flex-1 flex flex-col gap-6 items-center justify-center">
+    <div className="flex-1 flex flex-col gap-6 py-12 items-center justify-center">
       <Link
         to="/"
         className="font-bold text-3xl text-foreground"

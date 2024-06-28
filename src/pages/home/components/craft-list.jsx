@@ -29,7 +29,7 @@ const CraftList = () => {
             ))}
           </>
         )}
-        {crafts.map((item, i) => (
+        {crafts.slice(0, 12).map((item, i) => (
           <CraftCard
             data={item}
             key={"home-card-" + i}

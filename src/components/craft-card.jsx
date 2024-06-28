@@ -13,12 +13,12 @@ const CraftCard = ({ data, action = false }) => {
   const handleDelete = async () => {
     const toastId = toast.loading("Deleting craft item")
     try {
-      const res = await fetch(`http://localhost:4000/${data._id}`, {
+      const res = await fetch(`http://localhost:4000/craft/${data._id}`, {
         method: "DELETE",
       })
       if (res.ok) {
-        setIsOpen(false)
         toast.success("Craft item delete successfully!", { id: toastId })
+        setIsOpen(false)
       }
     } catch (error) {
       toast.error("Unable to delete craft item!", { id: toastId })
