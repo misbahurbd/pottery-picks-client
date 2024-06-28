@@ -102,7 +102,7 @@ const AddCraft = () => {
             disabled={isLoading}
           />
 
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <FormSelect
               form={form}
               name="customization"
@@ -112,7 +112,7 @@ const AddCraft = () => {
                 { id: 1, label: "Yes", value: "yes" },
                 { id: 2, label: "No", value: "no" },
               ]}
-              className="w-1/2"
+              className="w-full  sm:w-1/2"
               disabled={isLoading}
             />
             <FormSelect
@@ -121,18 +121,18 @@ const AddCraft = () => {
               label="Subcategory"
               placeholder="Subcategory"
               data={itemCategories}
-              className="w-1/2"
+              className="w-full  sm:w-1/2"
               disabled={isLoading}
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
             <FormSelect
               form={form}
               name="rating"
               label="Rating"
               placeholder="Rating"
               data={itemRating}
-              className="w-1/2"
+              className="w-full  sm:w-1/2"
               disabled={isLoading}
             />
             <FormSelect
@@ -141,7 +141,7 @@ const AddCraft = () => {
               label="Stock Status"
               placeholder="Stock status"
               data={itemStock}
-              className="w-1/2"
+              className="w-full  sm:w-1/2"
               disabled={isLoading}
             />
             <FormSelect
@@ -150,7 +150,7 @@ const AddCraft = () => {
               label="Processing time"
               placeholder="Processing time"
               data={itemProcessTime}
-              className="w-1/2"
+              className="w-full  sm:w-1/2"
               disabled={isLoading}
             />
           </div>

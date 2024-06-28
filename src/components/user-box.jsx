@@ -23,7 +23,7 @@ const UserBox = () => {
               src={user?.photoURL}
               className="size-8 rounded-full object-cover flex"
             />
-            <ul className="absolute z-[100] transition opacity-0 invisible translate-y-3 w-60 right-0 top-full bg-secondary/60 backdrop-blur-sm rounded-md border-border border group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible flex flex-col">
+            <ul className="absolute z-[100] transition opacity-0 invisible translate-y-3 w-60 right-0 top-full bg-secondary backdrop-blur-sm rounded-md border-border border group-hover:translate-y-0 group-hover:opacity-100 group-hover:visible flex flex-col">
               <li className="px-3 py-3 flex items-center gap-4">
                 <img
                   src={user?.photoURL}

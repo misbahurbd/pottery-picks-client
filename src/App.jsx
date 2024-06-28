@@ -27,11 +27,11 @@ const App = () => {
           element: <AuthLayout />,
           children: [
             {
-              path: "/login",
+              path: "login",
               element: <Login />,
             },
             {
-              path: "/register",
+              path: "register",
               element: <Register />,
             },
           ],
@@ -40,12 +40,19 @@ const App = () => {
           element: <PrivateLayout />,
           children: [
             {
-              path: "/add-craft",
+              path: "add-craft",
               element: <AddCraft />,
             },
             {
-              path: "/my-craft",
+              path: "my-craft",
               element: <MyCraft />,
+            },
+            {
+              path: "crafts/edit/:id",
+              element: <EditCraft />,
+              loader: async ({ params }) => {
+                return fetch(`http://localhost:4000/craft/${params.id}`)
+              },
             },
           ],
         },
@@ -64,10 +71,9 @@ const App = () => {
             {
               path: ":id",
               element: <Craft />,
-            },
-            {
-              path: "edit/:id",
-              element: <EditCraft />,
+              loader: async ({ params }) => {
+                return fetch(`http://localhost:4000/craft/${params.id}`)
+              },
             },
           ],
         },
