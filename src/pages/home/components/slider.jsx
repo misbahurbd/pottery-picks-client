@@ -14,14 +14,14 @@ const HomeSlider = () => {
     arrows: true,
     nextArrow: (
       <div>
-        <span className="absolute text-lg z-10 bg-secondary right-2 top-1/2 -translate-y-1/2 size-8 flex items-center justify-center shadow-md rounded cursor-pointer">
+        <span className="absolute z-10 bg-secondary right-2 top-1/2 -translate-y-1/2 size-12 text-2xl flex items-center justify-center shadow-md rounded cursor-pointer">
           <HiOutlineChevronRight />
         </span>
       </div>
     ),
     prevArrow: (
       <div>
-        <span className="absolute text-lg z-10 bg-secondary left-2 top-1/2 -translate-y-1/2 size-8 flex items-center justify-center shadow-md rounded cursor-pointer">
+        <span className="absolute z-10 bg-secondary left-2 top-1/2 -translate-y-1/2 size-12 text-2xl flex items-center justify-center shadow-md rounded cursor-pointer">
           <HiOutlineChevronLeft />
         </span>
       </div>
@@ -55,7 +55,7 @@ const HomeSlider = () => {
                   cursorStyle="_"
                 />
               </span>
-              <p className="text-sm sm:text-base text-foreground">
+              <p className="text-sm sm:text-base text-foreground/80">
                 {slide.text}
               </p>
             </div>
