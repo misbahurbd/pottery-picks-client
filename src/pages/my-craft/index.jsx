@@ -13,12 +13,15 @@ const MyCraft = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch("http://localhost:4000/my-craft/" + user.email, {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-      })
+      const data = await fetch(
+        "https://art-and-craft-server-coral.vercel.app/my-craft/" + user.email,
+        {
+          method: "GET",
+          headers: {
+            "content-type": "application/json",
+          },
+        }
+      )
       const craftData = await data.json()
       setCrafts(craftData)
       setLoading(false)

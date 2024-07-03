@@ -51,7 +51,9 @@ const App = () => {
               path: "crafts/edit/:id",
               element: <EditCraft />,
               loader: async ({ params }) => {
-                return fetch(`http://localhost:4000/craft/${params.id}`)
+                return fetch(
+                  `https://art-and-craft-server-coral.vercel.app/craft/${params.id}`
+                )
               },
             },
           ],
@@ -72,7 +74,9 @@ const App = () => {
               path: ":id",
               element: <Craft />,
               loader: async ({ params }) => {
-                return fetch(`http://localhost:4000/craft/${params.id}`)
+                return fetch(
+                  `https://art-and-craft-server-coral.vercel.app/craft/${params.id}`
+                )
               },
             },
           ],

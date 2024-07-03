@@ -9,7 +9,9 @@ const CraftList = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch("http://localhost:4000/craft")
+      const data = await fetch(
+        "https://art-and-craft-server-coral.vercel.app/craft"
+      )
       const craftData = await data.json()
       setCrafts(craftData)
       setLoading(false)
